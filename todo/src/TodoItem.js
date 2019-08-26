@@ -1,6 +1,11 @@
 import React from "react";
 
 function TodoItem(props) {
+    const checked = {
+        fontStyle: "italic",
+        color: "#cdcdcd",
+        textDecoration: "line-through"
+    }
     return (
         <div className="todo-item">
             <input 
@@ -11,7 +16,7 @@ function TodoItem(props) {
                 // In this way, the id of what is clicked is passed along to the handleChange method.
                 onChange={() => props.handleChange(props.item.id)}
             />
-            <p>{props.item.text}</p>
+            <p style={props.item.completed ? checked : null}>{props.item.text}</p>
         </div>
     )
 }
