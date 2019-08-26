@@ -11,7 +11,7 @@ class App extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this);
   }
-  // this method is passed to everyone one of our todo items (see under render method)
+  // this method is passed to everyone one of our todo items (see under render method). We get the id from the props in the TodoItem component.
   handleChange(id) {
     this.setState(prevState => {
       // the map looks through the todos array to find an id that matches with the parameter id
@@ -35,6 +35,8 @@ class App extends React.Component {
       item={item} 
       handleChange={this.handleChange}/>)
     
+    // this is what acutally gets rendered to the page after we map through all of the todos (array) 
+    // and each TodoItem component is created
     return (
       <div className="body">
         <div className="todo-list">
