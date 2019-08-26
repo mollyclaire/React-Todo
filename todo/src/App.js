@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.css';
-import todosData from "./todosData";
+import TodoData from "./TodoData";
+import TodoItem from "./TodoItem";
 
 class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      todos: todosData
+      todos: TodoData
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -24,11 +25,14 @@ class App extends React.Component {
       }
     })
   }
-  render() {return (
-      <div className="app">
-        
-      </div>
-    );
+  render() {
+    const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
+    
+    return (
+        <div className="todo-list">
+            {todoItems}
+        </div>
+    )    
   }
   
 }
